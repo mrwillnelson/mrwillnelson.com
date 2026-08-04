@@ -25,3 +25,8 @@ npm run deploy
 ```
 
 The Worker is configured with a custom domain route for `mrwillnelson.com`. Cloudflare auth and an active zone for the domain are required before deploy can create the custom domain.
+
+For GitHub Actions deploys, add these repository secrets:
+
+- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_ACCOUNT_ID`
