@@ -1,0 +1,16 @@
+{
+  "name": "mrwillnelson-com",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal personal brand landing page for Will Nelson.",
+  "type": "module",
+  "scripts": {
+    "build": "npm run validate",
+    "validate": "node scripts/validate.js",
+    "dev": "npx wrangler dev --port 4174",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.118.0"
+  }
+}

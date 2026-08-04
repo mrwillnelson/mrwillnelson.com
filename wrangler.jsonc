@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mrwillnelson-com",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-08-04",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "web",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    {
+      "pattern": "mrwillnelson.com",
+      "custom_domain": true
+    }
+  ]
+}

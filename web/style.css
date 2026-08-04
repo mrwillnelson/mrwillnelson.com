@@ -1,0 +1,195 @@
+:root {
+  --bg: #fbfaf7;
+  --text: #11110f;
+  --muted: #6b675f;
+  --line: #ded9cf;
+  --field: #ffffff;
+  --button: #11110f;
+  --button-text: #ffffff;
+  --focus: #8d6f38;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.page {
+  width: min(100% - 40px, 760px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 0 28px;
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-size: 15px;
+  font-weight: 650;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+
+.intro {
+  margin-top: clamp(86px, 16vh, 150px);
+  max-width: 690px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+h1 {
+  margin: 0;
+  max-width: 680px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(46px, 8vw, 78px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.subhead {
+  max-width: 590px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: clamp(18px, 2.4vw, 22px);
+  line-height: 1.45;
+}
+
+.signup {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  max-width: 520px;
+  margin-top: 34px;
+}
+
+.signup input,
+.signup button {
+  min-height: 50px;
+  border-radius: 0;
+  font: inherit;
+}
+
+.signup input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--text);
+  padding: 0 15px;
+}
+
+.signup input::placeholder {
+  color: #9a9488;
+}
+
+.signup input:focus,
+.signup button:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.signup input[aria-invalid="true"] {
+  border-color: #9b2c2c;
+}
+
+.signup button {
+  border: 1px solid var(--button);
+  background: var(--button);
+  color: var(--button-text);
+  padding: 0 20px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.signup button:hover {
+  background: #2a2925;
+  border-color: #2a2925;
+}
+
+.form-note {
+  min-height: 24px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 80px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer a:hover {
+  color: var(--text);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 560px) {
+  .page {
+    width: min(100% - 32px, 760px);
+    padding-top: 24px;
+  }
+
+  .intro {
+    margin-top: 74px;
+  }
+
+  h1 {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .signup {
+    grid-template-columns: 1fr;
+  }
+
+  .signup button {
+    width: 100%;
+  }
+}
