@@ -86,67 +86,13 @@ h1 {
   margin-top: 16px;
 }
 
-.signup {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 172px;
-  gap: 6px;
+.signup-embed {
   max-width: 640px;
   margin-top: 24px;
 }
 
-.signup input,
-.signup button {
-  min-height: 58px;
-  border-radius: 4px;
-  font: inherit;
-  font-size: 18px;
-}
-
-.signup input {
-  width: 100%;
-  border: 2px solid var(--line);
-  background: var(--field);
-  color: var(--text);
-  padding: 0 18px;
-}
-
-.signup input::placeholder {
-  color: #7b7b7b;
-}
-
-.signup input:focus,
-.signup button:focus {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-
-.signup input[aria-invalid="true"] {
-  border-color: #9b2c2c;
-}
-
-.signup button {
-  border: 1px solid var(--button);
-  background: var(--button);
-  color: var(--button-text);
-  padding: 0 18px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.signup button:hover {
-  background: #000000;
-  border-color: #000000;
-}
-
-.form-note {
-  margin: 12px 0 0;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.form-note:empty {
-  display: none;
+.signup-embed iframe {
+  max-width: 100%;
 }
 
 .footer {
@@ -202,20 +148,8 @@ h1 {
     line-height: 1.45;
   }
 
-  .signup {
-    grid-template-columns: 1fr;
+  .signup-embed {
     margin-top: 24px;
-  }
-
-  .signup input,
-  .signup button {
-    width: 100%;
-    min-height: 62px;
-    font-size: 20px;
-  }
-
-  .signup input {
-    padding: 0 18px;
   }
 
   .footer {
