@@ -42,10 +42,6 @@ const getPublicationId = async (env) => {
 };
 
 const subscribe = async (request, env) => {
-  if (!env.BEEHIIV_KEY) {
-    return json({ ok: false, message: "Signup is not configured yet." }, { status: 503 });
-  }
-
   let body;
   try {
     body = await request.json();
@@ -56,6 +52,10 @@ const subscribe = async (request, env) => {
   const email = String(body.email || "").trim().toLowerCase();
   if (!isValidEmail(email)) {
     return json({ ok: false, message: "Enter a valid email address." }, { status: 400 });
+  }
+
+  if (!env.BEEHIIV_KEY) {
+    return json({ ok: false, message: "Signup is not configured yet." }, { status: 503 });
   }
 
   try {
