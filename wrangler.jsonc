@@ -15,6 +15,10 @@
     {
       "pattern": "mrwillnelson.com",
       "custom_domain": true
+    },
+    {
+      "pattern": "www.mrwillnelson.com",
+      "custom_domain": true
     }
   ]
 }
