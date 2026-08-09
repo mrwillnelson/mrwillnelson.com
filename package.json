@@ -8,7 +8,7 @@
     "build": "npm run validate",
     "validate": "node scripts/validate.js",
     "dev": "npx wrangler dev --port 4174",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy --keep-vars"
   },
   "devDependencies": {
     "wrangler": "^4.118.0"
