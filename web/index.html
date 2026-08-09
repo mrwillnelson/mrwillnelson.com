@@ -23,9 +23,12 @@
         <p>3400 founders and marketers benefit. You probably will too.</p>
       </div>
 
-      <div class="signup-embed">
-        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="6cf6dee0-1d6f-445e-83c9-5c6c8351578c"></script>
-      </div>
+      <form class="signup" id="signup-form" action="/api/subscribe" method="post" novalidate>
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Enter your email" required />
+        <button type="submit">Get Access <span aria-hidden="true">&rarr;</span></button>
+      </form>
+      <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
     </section>
 
     <footer class="footer">
@@ -36,5 +39,6 @@
       <a href="https://www.linkedin.com/in/mrwillnelson/" rel="me noopener">LinkedIn</a>
     </footer>
   </main>
+  <script src="/script.js"></script>
 </body>
 </html>

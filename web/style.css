@@ -86,13 +86,72 @@ h1 {
   margin-top: 16px;
 }
 
-.signup-embed {
+.signup {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 172px;
+  gap: 6px;
   max-width: 640px;
   margin-top: 24px;
 }
 
-.signup-embed iframe {
-  max-width: 100%;
+.signup input,
+.signup button {
+  min-height: 58px;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 18px;
+}
+
+.signup input {
+  width: 100%;
+  border: 2px solid var(--line);
+  background: var(--field);
+  color: var(--text);
+  padding: 0 18px;
+}
+
+.signup input::placeholder {
+  color: #7b7b7b;
+}
+
+.signup input:focus,
+.signup button:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.signup input[aria-invalid="true"] {
+  border-color: #9b2c2c;
+}
+
+.signup button {
+  border: 1px solid var(--button);
+  background: var(--button);
+  color: var(--button-text);
+  padding: 0 18px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.signup button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.signup button:hover:not(:disabled) {
+  background: #000000;
+  border-color: #000000;
+}
+
+.form-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.form-note:empty {
+  display: none;
 }
 
 .footer {
@@ -148,8 +207,16 @@ h1 {
     line-height: 1.45;
   }
 
-  .signup-embed {
+  .signup {
+    grid-template-columns: 1fr;
     margin-top: 24px;
+  }
+
+  .signup input,
+  .signup button {
+    width: 100%;
+    min-height: 58px;
+    font-size: 18px;
   }
 
   .footer {
