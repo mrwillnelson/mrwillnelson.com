@@ -45,19 +45,6 @@ a {
   padding: 34px 0 28px;
 }
 
-.masthead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.wordmark {
-  font-size: 15px;
-  font-weight: 650;
-  text-decoration: none;
-  letter-spacing: 0;
-}
-
 .intro {
   margin-top: clamp(86px, 16vh, 150px);
   max-width: 690px;
