@@ -4,6 +4,7 @@ const requiredFiles = [
   "web/index.html",
   "web/style.css",
   "web/script.js",
+  "web/assets/profile.png",
   "web/404.html",
   "worker/index.js",
   "wrangler.jsonc",
