@@ -27,7 +27,7 @@ const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "
 
 const requiredSnippets = [
   "AI Automations that Make You 10x More Productive",
-  "I build and teach ai automations. Inside are all of the best skills, automations, and learnings building systems at companies like Bolt, Salesforce, and Shopify.",
+  "I build and teach AI automations. Inside are all of the best skills, workflows, and learnings from my work at companies like Bolt, Salesforce, and Shopify.",
   "3400 founders and marketers benefit. You probably will too.",
   'rel="icon" type="image/png" href="/favicon.png"',
   'action="/api/subscribe"',
