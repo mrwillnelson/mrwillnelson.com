@@ -24,10 +24,10 @@ const script = await readFile(new URL("../web/script.js", import.meta.url), "utf
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
 
 const requiredSnippets = [
-  "Learn how to build Agentic Marketing Systems",
-  "Practical AI workflows for founders and GTM teams building repeatable marketing systems.",
+  "AI Automations that Make You 10x More Productive",
+  "I build and teach ai automations. Inside are all of the best skills, automations, and learnings from my at companies like Shopify, Bolt, Salesforce, and Loom.",
+  "3400 founders and marketers benefit. You probably will too.",
   'type="email"',
-  "Beehiiv signup is not connected yet.",
 ];
 
 for (const snippet of requiredSnippets) {

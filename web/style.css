@@ -63,12 +63,6 @@ a {
   max-width: 690px;
 }
 
-.eyebrow {
-  margin: 0 0 18px;
-  color: var(--muted);
-  font-size: 15px;
-}
-
 h1 {
   margin: 0;
   max-width: 680px;
@@ -85,6 +79,14 @@ h1 {
   color: var(--muted);
   font-size: clamp(18px, 2.4vw, 22px);
   line-height: 1.45;
+}
+
+.subhead p {
+  margin: 0;
+}
+
+.subhead p + p {
+  margin-top: 16px;
 }
 
 .signup {
@@ -139,10 +141,13 @@ h1 {
 }
 
 .form-note {
-  min-height: 24px;
   margin: 12px 0 0;
   color: var(--muted);
   font-size: 14px;
+}
+
+.form-note:empty {
+  display: none;
 }
 
 .footer {
