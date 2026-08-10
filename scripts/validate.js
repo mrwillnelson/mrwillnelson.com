@@ -33,6 +33,7 @@ const requiredSnippets = [
   "I build and teach AI automations. Inside are all of the best skills, workflows, and learnings from my work at companies like Bolt, Salesforce, and Shopify.",
   "3400 founders and marketers benefit. You probably will too.",
   "Get the breakdowns",
+  "https://cal.com/64stories/30-min",
   "Build AI automations for your company",
   "Work with 64stories",
   'rel="icon" type="image/png" href="/favicon.png"',
