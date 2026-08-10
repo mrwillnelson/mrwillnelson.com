@@ -23,7 +23,7 @@
     font-family:var(--body);font-weight:300;line-height:1.6;
     -webkit-font-smoothing:antialiased;
     display:flex;flex-direction:column;
-    min-height:100svh;overflow-x:hidden;overflow-y:auto;
+    min-height:100svh;overflow:hidden;
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,3.4vw,40px);width:100%}
 
@@ -76,42 +76,14 @@
   .btn:hover{opacity:.9}
   .formcard .micro{font-size:12.5px;color:var(--faint);margin-top:clamp(9px,1.4vh,13px);text-align:center}
 
-  @keyframes drift{to{stroke-dashoffset:-220}}
-  .diagram-section{border-top:1px solid var(--line);padding:clamp(52px,8vw,110px) 0;background:var(--bg)}
-  .diagram-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:4px}
-  .diagram-stage{position:relative;width:100%;min-width:860px;aspect-ratio:16/9;overflow:hidden;background:var(--bg)}
-  .diagram-stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-  .diagram-input{position:absolute;left:0;width:21%;text-align:right;font-family:var(--display);font-size:clamp(8px,.95vw,14px);font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#ffffff;white-space:nowrap}
-  .diagram-brand{position:absolute;left:45.5%;top:46.7%;width:14%;text-align:center;font-family:var(--display);font-size:clamp(25px,2.8vw,42px);line-height:1;color:var(--ink)}
-  .diagram-output{position:absolute;left:72%;width:27%;display:flex;flex-direction:column;gap:8px}
-  .diagram-output h3{font-family:var(--body);font-size:clamp(15px,1.65vw,24px);font-weight:400;line-height:1.25;color:var(--ink)}
-  .diagram-output .kind{font-family:var(--display);font-size:clamp(7px,.75vw,11px);letter-spacing:.24em;text-transform:uppercase;color:var(--faint)}
-  .diagram-output p{font-size:clamp(9px,.95vw,14px);line-height:1.5;color:var(--faint)}
-
   footer{border-top:1px solid var(--line);padding:clamp(12px,1.8vh,18px) 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
   footer .note{font-size:clamp(12px,1.4vh,14px);color:var(--faint)}
 
   @media(max-width:900px),(max-height:620px){
+    body{overflow:auto}
     main{align-items:flex-start}
     .hero{grid-template-columns:1fr;gap:30px;padding-block:34px}
     h1{font-size:clamp(1.9rem,7vw,2.6rem);max-width:18ch}
-  }
-  @media(max-width:700px){
-    .diagram-section{padding:54px 0}
-    .diagram-scroll{overflow:visible}
-    .diagram-stage{display:flex;flex-direction:column;gap:14px;min-width:0;aspect-ratio:auto;overflow:visible}
-    .diagram-stage svg{display:none}
-    .diagram-brand{position:static;order:2;width:auto;margin:20px 0 8px;text-align:left;font-size:34px}
-    .diagram-input{position:static;order:1;width:auto;text-align:left;font-size:10px;white-space:normal}
-    .diagram-output{position:static;order:3;width:auto;gap:7px;padding-top:18px;border-top:1px solid var(--line)}
-    .diagram-output h3{font-size:22px}
-    .diagram-output .kind{font-size:9px}
-    .diagram-output p{font-size:14px}
-  }
-  @media(max-width:430px){
-    h1{font-size:34px}
-    .sub{font-size:18px}
-    .formcard{padding:26px 20px}
   }
 </style>
 </head>
@@ -156,62 +128,6 @@
     </div>
   </div>
 </main>
-
-<section class="diagram-section" aria-label="TalkStories product flow">
-  <div class="wrap">
-    <div class="diagram-scroll">
-      <div class="diagram-stage">
-        <svg viewBox="0 0 1600 900" aria-hidden="true">
-          <g fill="none" stroke="#3a352d" stroke-width="1">
-            <path d="M 380,202 C 550,202 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 15s linear infinite;"></path>
-            <path d="M 380,264 C 550,264 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 19s linear infinite;"></path>
-            <path d="M 380,326 C 550,326 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 13s linear infinite;"></path>
-            <path d="M 380,388 C 550,388 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 21s linear infinite;"></path>
-            <path d="M 380,450 C 550,450 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 16s linear infinite;"></path>
-            <path d="M 380,512 C 550,512 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 18s linear infinite;"></path>
-            <path d="M 380,574 C 550,574 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 14s linear infinite;"></path>
-            <path d="M 380,636 C 550,636 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 20s linear infinite;"></path>
-            <path d="M 380,698 C 550,698 660,450 710,450" style="stroke-dasharray:2 10; animation:drift 17s linear infinite;"></path>
-          </g>
-          <path d="M 955,450 L 1065,450" fill="none" stroke="#f2ede3" stroke-width="1.5"></path>
-          <g fill="none" stroke="#f2ede3" stroke-width="1">
-            <path d="M 1065,450 C 1088,450 1087,289 1110,289"></path>
-            <path d="M 1065,450 C 1088,450 1087,439 1110,439"></path>
-            <path d="M 1065,450 C 1088,450 1087,589 1110,589"></path>
-          </g>
-        </svg>
-
-        <div class="diagram-brand">TalkStories</div>
-
-        <div class="diagram-input" style="top:21.4%">Sales calls</div>
-        <div class="diagram-input" style="top:28.3%">Customer meetings</div>
-        <div class="diagram-input" style="top:35.2%">Viral LinkedIn formats</div>
-        <div class="diagram-input" style="top:42.1%">Customer LinkedIn comments</div>
-        <div class="diagram-input" style="top:49%">G2 reviews</div>
-        <div class="diagram-input" style="top:55.9%">Competitor AEO</div>
-        <div class="diagram-input" style="top:62.8%">Competitor news</div>
-        <div class="diagram-input" style="top:69.7%">Support tickets</div>
-        <div class="diagram-input" style="top:76.6%">Reddit threads</div>
-
-        <div class="diagram-output" style="top:30.4%">
-          <h3>Research-backed LinkedIn Post</h3>
-          <div class="kind">Post for CEO</div>
-          <p>From viral formats on LinkedIn and transcripts</p>
-        </div>
-        <div class="diagram-output" style="top:48.7%">
-          <h3>Copy to re-engage stale leads</h3>
-          <div class="kind">Posts for sales team</div>
-          <p>Based on comments from prospects in CRM</p>
-        </div>
-        <div class="diagram-output" style="top:65.4%">
-          <h3>AEO Article</h3>
-          <div class="kind">Blog for website</div>
-          <p>Based on competitor AEO activity</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <div class="wrap">
   <footer>

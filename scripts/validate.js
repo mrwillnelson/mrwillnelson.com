@@ -65,10 +65,6 @@ const talkstoriesSnippets = [
   "TalkStories listens to meetings across your company, customer calls, and the wider market.",
   "Book a demo",
   "Messaging intelligence for go-to-market teams.",
-  "Sales calls",
-  "Research-backed LinkedIn Post",
-  "Copy to re-engage stale leads",
-  "AEO Article",
   'rel="canonical" href="https://mrwillnelson.com/talkstories"',
 ];
 
