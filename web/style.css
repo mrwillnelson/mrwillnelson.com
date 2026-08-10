@@ -171,13 +171,6 @@ h1 {
   font-size: 16px;
 }
 
-.work-link-row {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.work-link-arrow,
 .work-links a:hover {
   color: var(--text);
 }
