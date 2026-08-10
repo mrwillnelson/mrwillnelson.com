@@ -12,6 +12,12 @@ const json = (body, init = {}) =>
 const isValidEmail = (value) =>
   typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
+const assetRequest = (request, pathname) => {
+  const url = new URL(request.url);
+  url.pathname = pathname;
+  return new Request(url, request);
+};
+
 const beehiivFetch = (env, path, init = {}) =>
   fetch(`${BEEHIIV_API_BASE}${path}`, {
     ...init,
@@ -102,6 +108,10 @@ export default {
 
     if (url.pathname === "/health") {
       return Response.json({ ok: true });
+    }
+
+    if ((request.method === "GET" || request.method === "HEAD") && url.pathname === "/talkstories") {
+      return env.ASSETS.fetch(assetRequest(request, "/talkstories/index.html"));
     }
 
     if (url.pathname === "/api/subscribe" && request.method === "POST") {
