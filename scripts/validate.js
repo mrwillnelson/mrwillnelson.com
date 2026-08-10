@@ -77,6 +77,9 @@ const talkstoriesSnippets = [
   "TalkStories listens to meetings across your company, customer calls, and the wider market.",
   "Book a demo",
   "Messaging intelligence for go-to-market teams.",
+  "Playfair Display",
+  "radial-gradient(120% 90% at 30% 0%",
+  "feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'",
   'rel="canonical" href="https://mrwillnelson.com/talkstories"',
 ];
 
@@ -84,6 +87,10 @@ for (const snippet of talkstoriesSnippets) {
   if (!talkstoriesHtml.includes(snippet)) {
     errors.push(`talkstories/index.html is missing: ${snippet}`);
   }
+}
+
+if (talkstoriesHtml.includes('class="brand">talkstories')) {
+  errors.push("talkstories/index.html must not render the TalkStories wordmark in the nav or footer.");
 }
 
 if (errors.length) {
