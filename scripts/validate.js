@@ -29,11 +29,14 @@ const worker = await readFile(new URL("../worker/index.js", import.meta.url), "u
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
 
 const requiredSnippets = [
-  "AI Automations that Make",
-  "You 10x More Productive",
-  "I build and teach AI automations. Inside are all of the best skills, workflows, and learnings from my work at companies like Bolt, Salesforce, and Shopify.",
-  "3400 founders and marketers benefit. You probably will too.",
-  "Get Access",
+  "Put AI to work.",
+  "Practical workflows for founders and marketers.",
+  "Join 3,400 founders and marketers.",
+  "Get the workflows",
+  "https://cal.com/64stories/30-min",
+  "Build AI workflows for your company",
+  "Work with 64stories.",
+  "64stories",
   'rel="icon" type="image/png" href="/favicon.png"',
   'action="/api/subscribe"',
   'type="email"',
