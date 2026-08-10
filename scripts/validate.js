@@ -34,6 +34,8 @@ const requiredSnippets = [
   "Join 3,400 founders and marketers.",
   "Get the workflows",
   "64stories",
+  "Fraunces",
+  "Newsreader",
   'rel="icon" type="image/png" href="/favicon.png"',
   'action="/api/subscribe"',
   'type="email"',
@@ -58,11 +60,11 @@ if (!worker.includes('url.pathname === "/talkstories"') || !worker.includes("/ta
 }
 
 const styleGuideSnippets = [
-  "radial-gradient(120% 90% at 30% 0%, var(--lift) 0%, var(--mid) 45%, #090909 100%)",
-  "feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'",
-  '"Playfair Display"',
-  "letter-spacing: 0.22em",
-  "border-radius: 0",
+  "--bg: #0e0c0a",
+  "--ink: #f2ede3",
+  '"Fraunces", Georgia, serif',
+  '"Newsreader", Georgia, serif',
+  "border-radius: 10px",
 ];
 
 for (const snippet of styleGuideSnippets) {
