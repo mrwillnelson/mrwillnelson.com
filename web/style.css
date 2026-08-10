@@ -161,20 +161,6 @@ h1 {
   display: none;
 }
 
-.work-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  margin-top: 22px;
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.work-links a:hover {
-  color: var(--text);
-}
-
 .footer {
   display: flex;
   flex-wrap: wrap;
@@ -260,10 +246,6 @@ h1 {
     width: 100%;
     min-height: 58px;
     font-size: 18px;
-  }
-
-  .work-links {
-    font-size: 16px;
   }
 
   .footer {
