@@ -57,8 +57,18 @@ if (!worker.includes('url.pathname === "/talkstories"') || !worker.includes("/ta
   errors.push("worker/index.js must serve the TalkStories page at /talkstories.");
 }
 
-if (!style.includes("color-scheme: light dark") || !style.includes("@media (prefers-color-scheme: dark)")) {
-  errors.push("style.css must support light and dark system color schemes.");
+const styleGuideSnippets = [
+  "radial-gradient(120% 90% at 30% 0%, var(--lift) 0%, var(--mid) 45%, #090909 100%)",
+  "feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'",
+  '"Playfair Display"',
+  "letter-spacing: 0.22em",
+  "border-radius: 0",
+];
+
+for (const snippet of styleGuideSnippets) {
+  if (!style.includes(snippet)) {
+    errors.push(`style.css is missing editorial style guide snippet: ${snippet}`);
+  }
 }
 
 const talkstoriesSnippets = [
