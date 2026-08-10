@@ -42,6 +42,6 @@ form.addEventListener("submit", async (event) => {
     setNote(error.message || "Could not subscribe right now.");
   } finally {
     button.disabled = false;
-    button.innerHTML = 'Get Access <span aria-hidden="true">&rarr;</span>';
+    button.innerHTML = 'Get the breakdowns <span aria-hidden="true">&rarr;</span>';
   }
 });
