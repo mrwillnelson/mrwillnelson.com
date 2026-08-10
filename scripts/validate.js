@@ -64,6 +64,7 @@ const talkstoriesSnippets = [
   "Find ideas your customers already care about.",
   "TalkStories listens to meetings across your company, customer calls, and the wider market.",
   "Book a demo",
+  "Messaging intelligence for go-to-market teams.",
   'rel="canonical" href="https://mrwillnelson.com/talkstories"',
 ];
 
