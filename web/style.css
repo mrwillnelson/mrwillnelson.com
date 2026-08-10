@@ -7,7 +7,10 @@
   --button: #171717;
   --button-text: #ffffff;
   --focus: #9a9a9a;
-  color-scheme: light;
+  --placeholder: #7b7b7b;
+  --invalid: #9b2c2c;
+  --button-hover: #000000;
+  color-scheme: light dark;
 }
 
 * {
@@ -111,7 +114,7 @@ h1 {
 }
 
 .signup input::placeholder {
-  color: #7b7b7b;
+  color: var(--placeholder);
 }
 
 .signup input:focus,
@@ -121,7 +124,7 @@ h1 {
 }
 
 .signup input[aria-invalid="true"] {
-  border-color: #9b2c2c;
+  border-color: var(--invalid);
 }
 
 .signup button {
@@ -140,8 +143,8 @@ h1 {
 }
 
 .signup button:hover:not(:disabled) {
-  background: #000000;
-  border-color: #000000;
+  background: var(--button-hover);
+  border-color: var(--button-hover);
 }
 
 .form-note {
@@ -178,6 +181,22 @@ h1 {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #080808;
+    --text: #f5f5f0;
+    --muted: #a5a5a0;
+    --line: #4c4c48;
+    --field: #10100f;
+    --button: #f5f5f0;
+    --button-text: #080808;
+    --focus: #d7d7d0;
+    --placeholder: #8e8e88;
+    --invalid: #ff8a8a;
+    --button-hover: #ffffff;
+  }
 }
 
 @media (max-width: 560px) {

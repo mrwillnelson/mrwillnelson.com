@@ -22,6 +22,7 @@ for (const file of requiredFiles) {
 }
 
 const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
+const style = await readFile(new URL("../web/style.css", import.meta.url), "utf8");
 const worker = await readFile(new URL("../worker/index.js", import.meta.url), "utf8");
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
 
@@ -46,6 +47,10 @@ if (!wrangler.includes('"pattern": "mrwillnelson.com"') || !wrangler.includes('"
 
 if (!worker.includes("env.BEEHIIV_KEY") || !worker.includes("/api/subscribe")) {
   errors.push("worker/index.js must wire /api/subscribe to the Beehiiv API key secret.");
+}
+
+if (!style.includes("color-scheme: light dark") || !style.includes("@media (prefers-color-scheme: dark)")) {
+  errors.push("style.css must support light and dark system color schemes.");
 }
 
 if (errors.length) {
