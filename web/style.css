@@ -40,7 +40,7 @@ a {
 }
 
 .page {
-  width: min(100% - 48px, 640px);
+  width: min(100% - 48px, 608px);
   min-height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -49,22 +49,22 @@ a {
 }
 
 .intro {
-  margin-top: clamp(150px, 21vh, 220px);
-  max-width: 640px;
+  margin-top: clamp(108px, 15vh, 170px);
+  max-width: 608px;
 }
 
 .profile {
   display: block;
-  width: 86px;
-  height: 86px;
-  margin: 0 0 24px;
+  width: 78px;
+  height: 78px;
+  margin: 0 0 30px;
   border-radius: 4px;
   object-fit: cover;
 }
 
 h1 {
   margin: 0;
-  max-width: 640px;
+  max-width: 585px;
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: clamp(42px, 3vw, 56px);
   font-weight: 620;
@@ -73,7 +73,7 @@ h1 {
 }
 
 .subhead {
-  max-width: 640px;
+  max-width: 608px;
   margin: 28px 0 0;
   color: var(--muted);
   font-size: clamp(19px, 1.25vw, 23px);
@@ -93,7 +93,7 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 230px;
   gap: 6px;
-  max-width: 640px;
+  max-width: 608px;
   margin-top: 24px;
 }
 
