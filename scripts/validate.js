@@ -29,7 +29,8 @@ const worker = await readFile(new URL("../worker/index.js", import.meta.url), "u
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
 
 const requiredSnippets = [
-  "AI Automations that Make You 10x More Productive",
+  "AI Automations that Make",
+  "You 10x More Productive",
   "I build and teach AI automations. Inside are all of the best skills, workflows, and learnings from my work at companies like Bolt, Salesforce, and Shopify.",
   "3400 founders and marketers benefit. You probably will too.",
   "Get the breakdowns",
