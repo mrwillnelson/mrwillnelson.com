@@ -29,13 +29,11 @@ const worker = await readFile(new URL("../worker/index.js", import.meta.url), "u
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
 
 const requiredSnippets = [
-  "The work you repeat is becoming software.",
-  "AI gives marketing teams the ability to turn how they think and work into repeatable systems.",
-  "I build those systems and show founders and marketers how to put them to work.",
-  "My experience includes Bolt, Salesforce, Shopify and more.",
-  "Join 3,400 founders and marketers getting my AI workflow breakdowns.",
+  "AI Automations that Make You 10x More Productive",
+  "I build and teach AI automations. Inside are all of the best skills, workflows, and learnings from my work at companies like Bolt, Salesforce, and Shopify.",
+  "3400 founders and marketers benefit. You probably will too.",
   "Get the breakdowns",
-  "Want this built around your team?",
+  "Build AI automations for your company",
   "Work with 64stories",
   'rel="icon" type="image/png" href="/favicon.png"',
   'action="/api/subscribe"',
