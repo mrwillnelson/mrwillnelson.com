@@ -79,8 +79,8 @@ const talkstoriesSnippets = [
   "Messaging intelligence for go-to-market teams.",
   "Fraunces",
   "Newsreader",
-  "radial-gradient(120% 90% at 30% 0%",
-  "feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'",
+  "--bg:#0e0c0a",
+  "border-radius:16px",
   'rel="canonical" href="https://mrwillnelson.com/talkstories"',
 ];
 
