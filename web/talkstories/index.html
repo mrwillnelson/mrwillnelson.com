@@ -35,7 +35,7 @@
   .hero{
     display:grid;grid-template-columns:1.1fr .9fr;
     gap:clamp(32px,4.4vw,60px);align-items:center;width:100%;
-    padding:clamp(20px,3.2vh,44px) 0;
+    padding-block:clamp(20px,3.2vh,44px);
   }
   h1{
     font-family:var(--display);font-weight:500;
@@ -82,7 +82,7 @@
   @media(max-width:900px),(max-height:620px){
     body{overflow:auto}
     main{align-items:flex-start}
-    .hero{grid-template-columns:1fr;gap:30px;padding:34px 0}
+    .hero{grid-template-columns:1fr;gap:30px;padding-block:34px}
     h1{font-size:clamp(1.9rem,7vw,2.6rem);max-width:18ch}
   }
 </style>
