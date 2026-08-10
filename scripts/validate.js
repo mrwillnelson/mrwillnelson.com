@@ -30,7 +30,7 @@ const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "
 
 const requiredSnippets = [
   "Put AI to work.",
-  "Practical workflows for founders and marketers.",
+  "I run AI experiments and turn the best into workflows.",
   "Join 3,400 founders and marketers.",
   "Get the workflows",
   "https://cal.com/64stories/30-min",
