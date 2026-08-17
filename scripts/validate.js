@@ -122,7 +122,9 @@ if (talkstoriesHtml.includes('class="brand">talkstories')) {
 
 const willsBrandSnippets = [
   '<meta name="robots" content="noindex,nofollow,noarchive"',
-  "Will's Brand Ideas",
+  "Will's Brand Canvas",
+  "Private canvas",
+  'class="canvas"',
   "Customer Listening And Better Ideas",
   "Marketing Systems And Founder Leverage",
   "Marketing Roles And Strategy",

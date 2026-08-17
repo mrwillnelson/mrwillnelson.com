@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Will's Brand Ideas</title>
-  <meta name="description" content="A private editorial index of Will Nelson's brand and content ideas." />
+  <title>Will's Brand Canvas</title>
+  <meta name="description" content="A private working canvas of Will Nelson's brand and content ideas." />
   <meta name="robots" content="noindex,nofollow,noarchive" />
   <link rel="canonical" href="https://mrwillnelson.com/wills-brand" />
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -19,6 +19,7 @@
       --faint: #8a8378;
       --line: #26221d;
       --raise: #181512;
+      --panel: #14110e;
     }
 
     * {
@@ -33,10 +34,15 @@
       min-height: 100%;
       margin: 0;
       overflow-x: hidden;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(54, 48, 39, 0.58), transparent 34rem),
+        linear-gradient(90deg, rgba(242, 237, 227, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(242, 237, 227, 0.035) 1px, transparent 1px),
+        var(--bg);
+      background-size: auto, 56px 56px, 56px 56px, auto;
       color: var(--ink);
       font-family: "Newsreader", Georgia, serif;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 300;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -44,21 +50,26 @@
 
     .page {
       width: calc(100% - 48px);
-      max-width: 1040px;
+      max-width: 1480px;
       margin: 0 auto;
-      padding: clamp(52px, 9vw, 112px) 0 72px;
+      padding: clamp(32px, 5vw, 72px) 0 72px;
     }
 
     .intro {
-      max-width: 770px;
-      margin-bottom: clamp(48px, 7vw, 86px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
     }
 
     .kicker {
       margin: 0 0 18px;
       color: var(--faint);
       font-family: "Fraunces", Georgia, serif;
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.17em;
       line-height: 1.4;
       text-transform: uppercase;
@@ -72,10 +83,10 @@
     }
 
     h1 {
-      max-width: 14ch;
+      max-width: 12ch;
       color: var(--ink);
       font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(42px, 6vw, 72px);
+      font-size: clamp(42px, 5.2vw, 68px);
       font-weight: 500;
       letter-spacing: -0.022em;
       line-height: 1.04;
@@ -83,27 +94,79 @@
     }
 
     .lede {
-      max-width: 52ch;
-      margin-top: 24px;
+      max-width: 44ch;
+      margin-top: 20px;
       color: var(--muted);
-      font-size: clamp(20px, 1.7vw, 24px);
-      line-height: 1.52;
+      font-size: clamp(19px, 1.5vw, 22px);
+      line-height: 1.46;
+    }
+
+    .canvas-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      min-width: min(100%, 320px);
+    }
+
+    .meta-block {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(24, 21, 18, 0.72);
+    }
+
+    .meta-label {
+      display: block;
+      color: var(--faint);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .meta-value {
+      display: block;
+      margin-top: 7px;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .canvas {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
     }
 
     .section {
-      padding-top: clamp(34px, 5vw, 54px);
-      border-top: 1px solid var(--line);
+      min-width: 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(20, 17, 14, 0.88);
+      box-shadow: inset 0 1px 0 rgba(242, 237, 227, 0.035);
     }
 
-    .section + .section {
-      margin-top: clamp(44px, 7vw, 72px);
+    .section:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .section:nth-child(2) {
+      grid-column: span 5;
+    }
+
+    .section:nth-child(3),
+    .section:nth-child(4),
+    .section:nth-child(5) {
+      grid-column: span 4;
     }
 
     h2 {
-      max-width: 18ch;
       color: var(--ink);
       font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(28px, 3.6vw, 44px);
+      font-size: clamp(24px, 2.4vw, 34px);
       font-weight: 500;
       letter-spacing: -0.018em;
       line-height: 1.08;
@@ -112,23 +175,23 @@
 
     .ideas {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px 22px;
-      margin-top: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
     }
 
     .idea {
       min-height: 100%;
-      padding: 20px 22px 22px;
+      padding: 13px 14px 14px;
       border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--raise);
+      border-radius: 12px;
+      background: rgba(24, 21, 18, 0.88);
     }
 
     h3 {
       color: var(--ink);
       font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(19px, 1.9vw, 24px);
+      font-size: clamp(17px, 1.2vw, 20px);
       font-weight: 500;
       letter-spacing: -0.01em;
       line-height: 1.16;
@@ -136,14 +199,14 @@
     }
 
     .idea p {
-      margin-top: 12px;
+      margin-top: 8px;
       color: var(--muted);
-      font-size: 17px;
-      line-height: 1.52;
+      font-size: 15px;
+      line-height: 1.42;
     }
 
     .footer-note {
-      margin-top: 64px;
+      margin-top: 28px;
       padding-top: 18px;
       border-top: 1px solid var(--line);
       color: var(--faint);
@@ -156,12 +219,26 @@
         padding-top: 48px;
       }
 
-      .ideas {
+      .intro,
+      .canvas-meta {
         grid-template-columns: 1fr;
       }
 
-      .idea {
-        padding: 18px;
+      .canvas {
+        grid-template-columns: 1fr;
+      }
+
+      .section,
+      .section:nth-child(1),
+      .section:nth-child(2),
+      .section:nth-child(3),
+      .section:nth-child(4),
+      .section:nth-child(5) {
+        grid-column: 1;
+      }
+
+      .ideas {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -169,11 +246,18 @@
 <body>
   <main class="page">
     <header class="intro">
-      <p class="kicker">Private index</p>
-      <h1>Will's Brand Ideas</h1>
-      <p class="lede">A working map of customer-listening, marketing-systems, demand, proof, and AI-writing ideas.</p>
+      <div>
+        <p class="kicker">Private canvas</p>
+        <h1>Will's Brand Canvas</h1>
+        <p class="lede">A working board for customer-listening, marketing-systems, demand, proof, and AI-writing ideas.</p>
+      </div>
+      <aside class="canvas-meta" aria-label="Canvas metadata">
+        <p class="meta-block"><span class="meta-label">Status</span><span class="meta-value">Working draft</span></p>
+        <p class="meta-block"><span class="meta-label">Source</span><span class="meta-value">Content ideas</span></p>
+      </aside>
     </header>
 
+    <div class="canvas">
     <section class="section" aria-labelledby="customer-listening">
       <h2 id="customer-listening">Customer Listening And Better Ideas</h2>
       <div class="ideas">
@@ -245,6 +329,8 @@
         <article class="idea"><h3>Your AI Writer Should Have to Compete for the Job</h3><p>Generate genuinely different drafts, remove weak entries cheaply, compare the survivors, and test the judge against real human decisions.</p></article>
       </div>
     </section>
+
+    </div>
 
     <p class="footer-note">Hidden from site navigation. Marked noindex for search engines.</p>
   </main>
