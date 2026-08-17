@@ -8,7 +8,7 @@ const requiredFiles = [
   "web/assets/profile.png",
   "web/talkstories/index.html",
   "web/wills-brand/index.html",
-  "web/_private/wills-brand",
+  "web/_private/wills-brand-v2",
   "web/404.html",
   "worker/index.js",
   "wrangler.jsonc",
@@ -27,7 +27,7 @@ for (const file of requiredFiles) {
 const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
 const talkstoriesHtml = await readFile(new URL("../web/talkstories/index.html", import.meta.url), "utf8");
 const willsBrandHtml = await readFile(new URL("../web/wills-brand/index.html", import.meta.url), "utf8");
-const willsBrandPrivateHtml = await readFile(new URL("../web/_private/wills-brand", import.meta.url), "utf8");
+const willsBrandPrivateHtml = await readFile(new URL("../web/_private/wills-brand-v2", import.meta.url), "utf8");
 const style = await readFile(new URL("../web/style.css", import.meta.url), "utf8");
 const worker = await readFile(new URL("../worker/index.js", import.meta.url), "utf8");
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
@@ -75,7 +75,7 @@ if (!worker.includes('url.pathname === "/talkstories"') || !worker.includes("/ta
 if (
   !worker.includes('url.pathname === "/wills-brand"') ||
   !worker.includes('url.pathname === "/wills-brand/"') ||
-  !worker.includes("/_private/wills-brand") ||
+  !worker.includes("/_private/wills-brand-v2") ||
   !worker.includes('url.pathname.startsWith("/_private/")') ||
   !worker.includes("X-Robots-Tag") ||
   !worker.includes("noindex, nofollow, noarchive")
@@ -141,12 +141,12 @@ for (const snippet of willsBrandSnippets) {
   }
 
   if (!willsBrandPrivateHtml.includes(snippet)) {
-    errors.push(`_private/wills-brand is missing: ${snippet}`);
+    errors.push(`_private/wills-brand-v2 is missing: ${snippet}`);
   }
 }
 
 if (willsBrandPrivateHtml !== willsBrandHtml) {
-  errors.push("_private/wills-brand must match wills-brand/index.html.");
+  errors.push("_private/wills-brand-v2 must match wills-brand/index.html.");
 }
 
 if (html.includes("/wills-brand") || talkstoriesHtml.includes("/wills-brand")) {
