@@ -7,7 +7,7 @@ const requiredFiles = [
   "web/favicon.png",
   "web/assets/profile.png",
   "web/wills-brand/index.html",
-  "web/_private/wills-brand-v8",
+  "web/_private/wills-brand-v9",
   "web/404.html",
   "worker/index.js",
   "wrangler.jsonc",
@@ -32,7 +32,7 @@ for (const file of requiredFiles) {
 
 const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
 const willsBrandHtml = await readFile(new URL("../web/wills-brand/index.html", import.meta.url), "utf8");
-const willsBrandPrivateHtml = await readFile(new URL("../web/_private/wills-brand-v8", import.meta.url), "utf8");
+const willsBrandPrivateHtml = await readFile(new URL("../web/_private/wills-brand-v9", import.meta.url), "utf8");
 const style = await readFile(new URL("../web/style.css", import.meta.url), "utf8");
 const worker = await readFile(new URL("../worker/index.js", import.meta.url), "utf8");
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
@@ -86,7 +86,7 @@ if (
 if (
   !worker.includes('url.pathname === "/wills-brand"') ||
   !worker.includes('url.pathname === "/wills-brand/"') ||
-  !worker.includes("/_private/wills-brand-v8") ||
+  !worker.includes("/_private/wills-brand-v9") ||
   !worker.includes('url.pathname.startsWith("/_private/")') ||
   !worker.includes("X-Robots-Tag") ||
   !worker.includes("noindex, nofollow, noarchive")
@@ -115,9 +115,9 @@ const willsBrandSnippets = [
   'font-family: var(--display)',
   'font-family: var(--body)',
   "Stories that make customers buy.",
-  "Position: Be worth listening to.",
+  "Going direct isn't enough. You have to be worth listening to.",
   "$100M+ high-ACV B2B companies",
-  "They do not know what will land.",
+  "They don't know what will land.",
   "Listen before you create.",
   "Agentic Storytelling Systems",
   "Media",
@@ -141,7 +141,7 @@ for (const snippet of willsBrandSnippets) {
   }
 
   if (!willsBrandPrivateHtml.includes(snippet)) {
-    errors.push(`_private/wills-brand-v8 is missing: ${snippet}`);
+    errors.push(`_private/wills-brand-v9 is missing: ${snippet}`);
   }
 }
 
@@ -159,7 +159,7 @@ for (const snippet of staleFunnelSnippets) {
 }
 
 if (willsBrandPrivateHtml !== willsBrandHtml) {
-  errors.push("_private/wills-brand-v8 must match wills-brand/index.html.");
+  errors.push("_private/wills-brand-v9 must match wills-brand/index.html.");
 }
 
 if (html.includes("/wills-brand")) {
