@@ -123,15 +123,16 @@ if (talkstoriesHtml.includes('class="brand">talkstories')) {
 const willsBrandSnippets = [
   '<meta name="robots" content="noindex,nofollow,noarchive"',
   "Will's Brand Canvas",
-  "Private canvas",
-  'class="canvas"',
-  "Customer Listening And Better Ideas",
-  "Marketing Systems And Founder Leverage",
-  "Marketing Roles And Strategy",
-  "Demand And Proof",
-  "AI Writing System Lessons",
-  "Everything Fake Is Getting Cheaper",
-  "Your AI Writer Should Have to Compete for the Job",
+  "Stories that make customers care and buy.",
+  "Position: Be worth listening to.",
+  "$100M+ high-ACV B2B companies",
+  "They do not know what will land.",
+  "Listen before you create.",
+  "Agentic Storytelling Systems",
+  "Distribution Engine",
+  "Useful resource",
+  "TalkStories &rarr;<br />64stories",
+  "Does this help Will crack distribution",
 ];
 
 for (const snippet of willsBrandSnippets) {

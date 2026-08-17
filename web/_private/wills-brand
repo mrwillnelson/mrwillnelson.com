@@ -4,22 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Will's Brand Canvas</title>
-  <meta name="description" content="A private working canvas of Will Nelson's brand and content ideas." />
+  <meta name="description" content="A private working canvas for Will Nelson's brand strategy." />
   <meta name="robots" content="noindex,nofollow,noarchive" />
   <link rel="canonical" href="https://mrwillnelson.com/wills-brand" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0e0c0a;
-      --ink: #f2ede3;
-      --muted: #c3bbae;
-      --faint: #8a8378;
-      --line: #26221d;
-      --raise: #181512;
-      --panel: #14110e;
+      --bg: #f7f7f5;
+      --panel: #fbfbfa;
+      --ink: #202329;
+      --muted: #8b8d90;
+      --line: #dedede;
+      --blue: #2491ff;
+      --green: #13a85a;
     }
 
     * {
@@ -33,306 +30,369 @@
     body {
       min-height: 100%;
       margin: 0;
-      overflow-x: hidden;
-      background:
-        radial-gradient(circle at 18% 0%, rgba(54, 48, 39, 0.58), transparent 34rem),
-        linear-gradient(90deg, rgba(242, 237, 227, 0.035) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(242, 237, 227, 0.035) 1px, transparent 1px),
-        var(--bg);
-      background-size: auto, 56px 56px, 56px 56px, auto;
+      background: var(--bg);
       color: var(--ink);
-      font-family: "Newsreader", Georgia, serif;
-      font-size: 17px;
-      font-weight: 300;
-      line-height: 1.6;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.28;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     .page {
-      width: calc(100% - 48px);
-      max-width: 1480px;
+      width: min(100% - 8px, 1240px);
       margin: 0 auto;
-      padding: clamp(32px, 5vw, 72px) 0 72px;
+      padding: 2px 0 28px;
     }
 
-    .intro {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 22px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
+    .block {
+      background: var(--panel);
+      border: 1px solid var(--line);
     }
 
-    .kicker {
-      margin: 0 0 18px;
-      color: var(--faint);
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 10px;
-      letter-spacing: 0.17em;
-      line-height: 1.4;
+    .north-star {
+      min-height: 224px;
+      padding: 56px 38px 34px;
+      border-left: 7px solid var(--blue);
+    }
+
+    .label {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
       text-transform: uppercase;
     }
 
     h1,
     h2,
-    h3,
-    p {
+    p,
+    ul {
       margin: 0;
     }
 
     h1 {
-      max-width: 12ch;
-      color: var(--ink);
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(42px, 5.2vw, 68px);
+      max-width: 28ch;
+      font-size: clamp(34px, 3.5vw, 43px);
       font-weight: 500;
-      letter-spacing: -0.022em;
-      line-height: 1.04;
-      overflow-wrap: break-word;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
     }
 
-    .lede {
-      max-width: 44ch;
-      margin-top: 20px;
+    .position {
+      margin-top: 18px;
       color: var(--muted);
-      font-size: clamp(19px, 1.5vw, 22px);
-      line-height: 1.46;
+      font-size: clamp(25px, 2.4vw, 31px);
+      font-weight: 400;
+      letter-spacing: -0.025em;
     }
 
-    .canvas-meta {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      min-width: min(100%, 320px);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
 
-    .meta-block {
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(24, 21, 18, 0.72);
+    .cell {
+      min-height: 358px;
+      padding: 35px 28px 29px;
+      background: var(--panel);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .meta-label {
-      display: block;
-      color: var(--faint);
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      line-height: 1.2;
+    .cell h2,
+    .step h2,
+    .future h2 {
+      color: var(--ink);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      line-height: 1.15;
       text-transform: uppercase;
     }
 
-    .meta-value {
-      display: block;
-      margin-top: 7px;
+    .cell-title {
+      margin-top: 13px;
       color: var(--ink);
-      font-size: 18px;
-      line-height: 1.1;
-    }
-
-    .canvas {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 14px;
-      align-items: start;
-    }
-
-    .section {
-      min-width: 0;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(20, 17, 14, 0.88);
-      box-shadow: inset 0 1px 0 rgba(242, 237, 227, 0.035);
-    }
-
-    .section:nth-child(1) {
-      grid-column: span 7;
-    }
-
-    .section:nth-child(2) {
-      grid-column: span 5;
-    }
-
-    .section:nth-child(3),
-    .section:nth-child(4),
-    .section:nth-child(5) {
-      grid-column: span 4;
-    }
-
-    h2 {
-      color: var(--ink);
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(24px, 2.4vw, 34px);
+      font-size: clamp(28px, 2.45vw, 32px);
       font-weight: 500;
-      letter-spacing: -0.018em;
-      line-height: 1.08;
-      overflow-wrap: break-word;
+      letter-spacing: -0.04em;
+      line-height: 1.17;
     }
 
-    .ideas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 10px;
-      margin-top: 16px;
+    .cell-title.narrow {
+      max-width: 13ch;
     }
 
-    .idea {
-      min-height: 100%;
-      padding: 13px 14px 14px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(24, 21, 18, 0.88);
-    }
-
-    h3 {
-      color: var(--ink);
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(17px, 1.2vw, 20px);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      line-height: 1.16;
-      overflow-wrap: break-word;
-    }
-
-    .idea p {
-      margin-top: 8px;
+    .cell-copy {
+      max-width: 13.5em;
+      margin-top: 22px;
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.42;
+      font-size: clamp(27px, 2.3vw, 31px);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.36;
     }
 
-    .footer-note {
-      margin-top: 28px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--faint);
-      font-size: 14px;
+    .cell ul {
+      margin-top: 12px;
+      padding: 0;
+      list-style: none;
     }
 
-    @media (max-width: 760px) {
+    .cell li {
+      position: relative;
+      padding-left: 27px;
+      color: var(--ink);
+      font-size: clamp(27px, 2.3vw, 31px);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.34;
+    }
+
+    .cell li + li {
+      margin-top: 12px;
+    }
+
+    .cell li::before {
+      content: "";
+      position: absolute;
+      top: 0.67em;
+      left: 4px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .funnel {
+      display: grid;
+      grid-template-columns: 1fr 62px 1fr 62px 1fr 62px 1.1fr;
+      align-items: start;
+      min-height: 264px;
+      margin-top: 26px;
+      padding: 31px 28px 28px;
+    }
+
+    .step h2,
+    .future h2 {
+      text-transform: none;
+    }
+
+    .step-copy,
+    .future-copy,
+    .test-copy {
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: clamp(27px, 2.25vw, 31px);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.36;
+    }
+
+    .arrow {
+      align-self: center;
+      justify-self: center;
+      color: var(--blue);
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .bottom {
+      display: grid;
+      grid-template-columns: 0.48fr 1fr;
+      gap: 64px;
+      min-height: 226px;
+      margin-top: 26px;
+      padding: 36px 34px 34px 29px;
+      border-left: 7px solid var(--green);
+    }
+
+    .future .label,
+    .test .label {
+      margin-bottom: 12px;
+    }
+
+    .future-copy,
+    .test-copy {
+      margin-top: 0;
+      color: var(--ink);
+      font-size: clamp(27px, 2.3vw, 31px);
+      font-weight: 400;
+      max-width: 39em;
+    }
+
+    .sr-note {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
       .page {
-        width: calc(100% - 32px);
-        padding-top: 48px;
+        width: calc(100% - 20px);
+        padding-top: 10px;
       }
 
-      .intro,
-      .canvas-meta {
+      .north-star {
+        min-height: auto;
+        padding: 32px 24px 28px;
+      }
+
+      .grid {
         grid-template-columns: 1fr;
+        margin-top: 18px;
       }
 
-      .canvas {
+      .cell {
+        min-height: auto;
+        padding: 28px 24px;
+      }
+
+      .cell-copy {
+        max-width: none;
+      }
+
+      .funnel {
         grid-template-columns: 1fr;
+        gap: 18px;
+        min-height: auto;
+        padding: 28px 24px;
       }
 
-      .section,
-      .section:nth-child(1),
-      .section:nth-child(2),
-      .section:nth-child(3),
-      .section:nth-child(4),
-      .section:nth-child(5) {
-        grid-column: 1;
+      .arrow {
+        justify-self: start;
+        transform: rotate(90deg);
       }
 
-      .ideas {
+      .bottom {
         grid-template-columns: 1fr;
+        gap: 28px;
+        min-height: auto;
+        padding: 28px 24px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .label,
+      .cell h2,
+      .step h2,
+      .future h2 {
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .position,
+      .cell-title,
+      .cell-copy,
+      .cell li,
+      .step-copy,
+      .future-copy,
+      .test-copy {
+        font-size: 26px;
       }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <header class="intro">
-      <div>
-        <p class="kicker">Private canvas</p>
-        <h1>Will's Brand Canvas</h1>
-        <p class="lede">A working board for customer-listening, marketing-systems, demand, proof, and AI-writing ideas.</p>
-      </div>
-      <aside class="canvas-meta" aria-label="Canvas metadata">
-        <p class="meta-block"><span class="meta-label">Status</span><span class="meta-value">Working draft</span></p>
-        <p class="meta-block"><span class="meta-label">Source</span><span class="meta-value">Content ideas</span></p>
-      </aside>
-    </header>
-
-    <div class="canvas">
-    <section class="section" aria-labelledby="customer-listening">
-      <h2 id="customer-listening">Customer Listening And Better Ideas</h2>
-      <div class="ideas">
-        <article class="idea"><h3>Everything Fake Is Getting Cheaper</h3><p>AI lowers the cost of polished imitation, making real customer evidence, lived experience, earned judgment, and specific proof more valuable.</p></article>
-        <article class="idea"><h3>I'm Begging You to Stop Starting With a Blank Page</h3><p>A blank page is a sign that marketing has become disconnected from customers. Strong ideas should be extracted from real conversations, not invented from nothing.</p></article>
-        <article class="idea"><h3>How to Know What Customers Want Before They Tell You</h3><p>Customers reveal what they want through repeated questions, workarounds, objections, emotional language, and behavior long before they make a direct request.</p></article>
-        <article class="idea"><h3>The Most Important Skill of the Next 10 Years (Not Prompting)</h3><p>As AI makes production cheap, recognizing what matters becomes more valuable. The best marketers will know which customer sentence, behavior, or pattern deserves attention.</p></article>
-        <article class="idea"><h3>The Only Advantage AI Cannot Copy</h3><p>Competitors can copy tools, prompts, and published output. They cannot copy customer conversations, leadership judgment, company history, relationships, or accumulated market knowledge.</p></article>
-        <article class="idea"><h3>Your Best Content Is Hiding in Plain Sight</h3><p>The strongest ideas are already appearing in sales calls, customer meetings, leadership conversations, and product debates. Companies fail to notice and preserve them.</p></article>
-        <article class="idea"><h3>How to Have More Ideas by Thinking Less</h3><p>Better ideas come from listening more closely, not thinking harder. Sales calls and customer conversations already contain the questions, tensions, and language worth building around.</p></article>
-        <article class="idea"><h3>Why Companies Forget Their Best Ideas</h3><p>Valuable ideas are said once in calls and meetings, then disappear into recordings and notes nobody revisits.</p></article>
-        <article class="idea"><h3>How to Know What Your Market Wants Before Your Competitors Do</h3><p>Customer conversations and buyer behavior provide early warnings about changing pain, urgency, language, and demand before those shifts become obvious to the market.</p></article>
-        <article class="idea"><h3>The Best Ideas Are Rarely Invented</h3><p>Strong ideas are usually noticed in real conversations, sharpened with judgment, and distributed well rather than created from nothing in a content meeting.</p></article>
-        <article class="idea"><h3>What Happens to Marketing When Ideas Become Free</h3><p>When anyone can generate endless ideas, advantage moves to companies with better source material, stronger judgment, and clearer evidence from buyers.</p></article>
-        <article class="idea"><h3>How to Get 9% Better at Marketing This Week</h3><p>A small improvement can come from replacing one week of guessing with one week of closer customer listening and better evidence.</p></article>
-      </div>
+    <section class="block north-star" aria-labelledby="north-star">
+      <p class="label">North Star</p>
+      <h1 id="north-star">Stories that make customers care and buy.</h1>
+      <p class="position">Position: Be worth listening to.</p>
     </section>
 
-    <section class="section" aria-labelledby="marketing-systems">
-      <h2 id="marketing-systems">Marketing Systems And Founder Leverage</h2>
-      <div class="ideas">
-        <article class="idea"><h3>The Smartest Marketer in the Company Is Usually the Bottleneck</h3><p>The founder's unusually strong context makes the marketing good, but it also makes the company wait for their ideas, corrections, and approval.</p></article>
-        <article class="idea"><h3>How to Build Marketing That Runs Without You</h3><p>Separate founder judgment from founder labor, then build a system that can keep listening, creating, publishing, and learning when the founder gets busy.</p></article>
-        <article class="idea"><h3>How to Run Marketing in Four Hours a Week</h3><p>The founder supplies a few high-value hours of listening, decisions, review, and learning while the system handles extraction, production, distribution, and tracking.</p></article>
-        <article class="idea"><h3>The Marketing System That Gave Me My Week Back</h3><p>The real time savings came from removing repeated decisions, reminders, reviews, and handoffs rather than merely producing drafts faster.</p></article>
-        <article class="idea"><h3>The 4-Hour Workweek Is Finally Possible</h3><p>AI systems can finally carry recurring knowledge work once a person has taught them the process, standards, and decisions that used to remain in their head.</p></article>
-        <article class="idea"><h3>The Companies That Win Won't Wait for the Founder</h3><p>Founder-led marketing must become founder-trained so the company can preserve leadership judgment without depending on constant leadership availability.</p></article>
-        <article class="idea"><h3>How to Turn What You Know Into a Sales Channel [Full Playbook]</h3><p>Founder content becomes commercially useful when proprietary knowledge is organized into repeatable formats, distributed to buyers, connected to sales, and improved through feedback.</p></article>
-        <article class="idea"><h3>How to Turn 1% of Your Leaders' Time Into a Sales Channel</h3><p>Leaders do not need to become full-time creators. A small amount of their time can supply the judgment and stories that a system turns into buyer engagement and opportunities for sales.</p></article>
-        <article class="idea"><h3>The Marketing System That Took Me 5 Years to Build</h3><p>Years of executive communications work became a repeatable system of listening, judgment, quality control, distribution, sales follow-up, and learning.</p></article>
-        <article class="idea"><h3>How to Build Marketing That Gets Smarter Every Week [Full Playbook]</h3><p>A complete marketing system should learn from customer conversations, buyer response, and sales outcomes so each cycle improves the next one.</p></article>
-      </div>
+    <section class="grid" aria-label="Brand canvas">
+      <article class="cell">
+        <h2>Who</h2>
+        <p class="cell-title">$100M+ high-ACV B2B companies</p>
+        <p class="cell-copy">Founders and marketers who need more attention from the right accounts.</p>
+      </article>
+
+      <article class="cell">
+        <h2>Problem</h2>
+        <p class="cell-title">They do not know what will land.</p>
+        <p class="cell-copy">They create content without enough signal from the people they need to influence.</p>
+      </article>
+
+      <article class="cell">
+        <h2>Belief</h2>
+        <p class="cell-title">Listen before you create.</p>
+        <p class="cell-copy">The best messages already exist in customer, company, and market conversations.</p>
+      </article>
+
+      <article class="cell">
+        <h2>What We Build</h2>
+        <p class="cell-title narrow">Agentic Storytelling Systems</p>
+        <p class="cell-copy">Systems that find the story, create the message, distribute it, and learn from buyer response.</p>
+      </article>
+
+      <article class="cell">
+        <h2>Distribution Engine</h2>
+        <ul>
+          <li>Short-form earns emails.</li>
+          <li>X, LinkedIn, and newsletter teach the idea.</li>
+          <li>Maven creates conviction.</li>
+          <li>YouTube earns enterprise trust.</li>
+        </ul>
+      </article>
+
+      <article class="cell">
+        <h2>Offers</h2>
+        <ul>
+          <li>Maven: learn the system.</li>
+          <li>TalkStories: know what to say.</li>
+          <li>64stories: build, manage, and scale it.</li>
+        </ul>
+      </article>
     </section>
 
-    <section class="section" aria-labelledby="roles-strategy">
-      <h2 id="roles-strategy">Marketing Roles And Strategy</h2>
-      <div class="ideas">
-        <article class="idea"><h3>Marketers, You're the Problem</h3><p>Marketers cannot keep blaming founders, sales, agencies, or AI. Their job is to build a system that finds stories target customers care about and distributes them without constant chasing.</p></article>
-        <article class="idea"><h3>your social media manager is cute</h3><p>Social media managers were hired to be creative and fill calendars. The smarter social role starts with customer knowledge, shapes company strategy, reaches target accounts, and gives sales useful information.</p></article>
-        <article class="idea"><h3>The Content Marketer Is Dead</h3><p>Producing content is becoming the least valuable part of content marketing. The next marketer will find signal, exercise judgment, design systems, distribute ideas, and work with sales.</p></article>
-        <article class="idea"><h3>How to Create More Demand by Publishing Less</h3><p>Companies can cut low-value output and put more force behind fewer buyer-relevant ideas through stronger proof, wider distribution, reuse, and sales follow-up.</p></article>
-        <article class="idea"><h3>The Most Valuable Marketing Skill of the AI Era Is Knowing What Sounds Wrong</h3><p>When AI can produce endless plausible work, the scarce skill is quickly recognizing what is generic, false, exaggerated, or unlike the company.</p></article>
-      </div>
+    <section class="block funnel" aria-label="Distribution path">
+      <article class="step">
+        <h2>Useful resource</h2>
+        <p class="step-copy">Make the first idea useful.</p>
+      </article>
+      <div class="arrow" aria-hidden="true">&rarr;</div>
+      <article class="step">
+        <h2>Email</h2>
+        <p class="step-copy">Start the relationship.</p>
+      </article>
+      <div class="arrow" aria-hidden="true">&rarr;</div>
+      <article class="step">
+        <h2>Maven</h2>
+        <p class="step-copy">Teach the method.</p>
+      </article>
+      <div class="arrow" aria-hidden="true">&rarr;</div>
+      <article class="step">
+        <h2>TalkStories &rarr;<br />64stories</h2>
+        <p class="step-copy">Intelligence, then implementation.</p>
+      </article>
     </section>
 
-    <section class="section" aria-labelledby="demand-proof">
-      <h2 id="demand-proof">Demand And Proof</h2>
-      <div class="ideas">
-        <article class="idea"><h3>How to Win the Sale Before the First Call</h3><p>Useful executive thinking can build familiarity and trust with target buyers before sales reaches out, making the first conversation a continuation rather than an introduction.</p></article>
-        <article class="idea"><h3>3 Million Impressions in 12 Weeks</h3><p>Large reach came from a clear narrative, research-led executive content, target-account distribution, and feedback from sales rather than a lucky viral post.</p></article>
-        <article class="idea"><h3>1 Million Impressions. 1 LinkedIn Post.</h3><p>One outlier post can reveal a market tension, resonant idea, valuable audience, and follow-up opportunity rather than serving only as a vanity metric.</p></article>
-        <article class="idea"><h3>3.2 Million Impressions. $3.4 Million in Pipeline.</h3><p>An anonymous case study shows how executive content reached the right buyers, created engagement across target accounts, and contributed to measurable enterprise pipeline.</p></article>
-      </div>
+    <section class="block bottom" aria-label="Future and content test">
+      <article class="future">
+        <p class="label">Desired Future</p>
+        <p class="future-copy">Content helps grow sales without consuming marketing and leadership.</p>
+      </article>
+
+      <article class="test">
+        <p class="label">Content Test</p>
+        <p class="test-copy">Does this help Will crack distribution, teach distribution, or sell a system that creates distribution and demand?</p>
+      </article>
     </section>
 
-    <section class="section" aria-labelledby="ai-writing">
-      <h2 id="ai-writing">AI Writing System Lessons</h2>
-      <div class="ideas">
-        <article class="idea"><h3>AI Gets Better When You Trust It Less</h3><p>The strongest AI systems use hard rules for what can be defined and reserve model judgment for the few decisions a formula cannot make.</p></article>
-        <article class="idea"><h3>We Built an AI Writing Team. Its Most Important Job Is Saying No.</h3><p>In a world of unlimited generation, the useful system is the one that rejects weak work and knows when nothing should be published.</p></article>
-        <article class="idea"><h3>People Can't Tell You Their Own Voice. Watch What They Edit.</h3><p>What people say about their voice is incomplete. Their repeated edits reveal the boundaries, preferences, and instincts they actually use.</p></article>
-        <article class="idea"><h3>Stop Treating Silence Like Feedback</h3><p>A missing response is not approval, rejection, or preference. Teaching a system from silence turns absence into invented evidence.</p></article>
-        <article class="idea"><h3>When the Data Says Your Taste Is Wrong</h3><p>Performance data can challenge a client's preferences and expose useful tension, but it should inform the decision rather than silently override their judgment.</p></article>
-        <article class="idea"><h3>Our Best Feature Broke Our Own Kanban Board</h3><p>Hooks designed to withhold the subject made every card title useless, forcing the system to separate reader curiosity from internal clarity.</p></article>
-        <article class="idea"><h3>We Measured Our Founders' Writing Advice. A Lot of It Was Wrong.</h3><p>Real post data contradicted confident beliefs about voice, length, and style, showing why observed behavior can be more reliable than self-description.</p></article>
-        <article class="idea"><h3>We Were Accidentally Teaching Our AI to Break Our Own Rules</h3><p>Weak examples quietly trained the system to reproduce the exact writing patterns its quality checks were supposed to reject.</p></article>
-        <article class="idea"><h3>We Told Our AI What Not to Do. It Did Exactly That.</h3><p>A parser turned a list of forbidden styles into positive instructions, showing how easily a safeguard can reverse its meaning inside an AI workflow.</p></article>
-        <article class="idea"><h3>A Production AI Platform on 2 Dependencies and a 50-Line Build Script</h3><p>A useful production AI system can remain technically simple when its workflows, data, testing, and operating choices are clear.</p></article>
-        <article class="idea"><h3>Your AI Writer Should Have to Compete for the Job</h3><p>Generate genuinely different drafts, remove weak entries cheaply, compare the survivors, and test the judge against real human decisions.</p></article>
-      </div>
-    </section>
-
-    </div>
-
-    <p class="footer-note">Hidden from site navigation. Marked noindex for search engines.</p>
+    <p class="sr-note">Hidden from site navigation. Marked noindex for search engines.</p>
   </main>
 </body>
 </html>
