@@ -7,7 +7,7 @@ const requiredFiles = [
   "web/favicon.png",
   "web/assets/profile.png",
   "web/wills-brand/index.html",
-  "web/_private/wills-brand-v6",
+  "web/_private/wills-brand-v7",
   "web/404.html",
   "worker/index.js",
   "wrangler.jsonc",
@@ -32,7 +32,7 @@ for (const file of requiredFiles) {
 
 const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
 const willsBrandHtml = await readFile(new URL("../web/wills-brand/index.html", import.meta.url), "utf8");
-const willsBrandPrivateHtml = await readFile(new URL("../web/_private/wills-brand-v6", import.meta.url), "utf8");
+const willsBrandPrivateHtml = await readFile(new URL("../web/_private/wills-brand-v7", import.meta.url), "utf8");
 const style = await readFile(new URL("../web/style.css", import.meta.url), "utf8");
 const worker = await readFile(new URL("../worker/index.js", import.meta.url), "utf8");
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
@@ -86,7 +86,7 @@ if (
 if (
   !worker.includes('url.pathname === "/wills-brand"') ||
   !worker.includes('url.pathname === "/wills-brand/"') ||
-  !worker.includes("/_private/wills-brand-v6") ||
+  !worker.includes("/_private/wills-brand-v7") ||
   !worker.includes('url.pathname.startsWith("/_private/")') ||
   !worker.includes("X-Robots-Tag") ||
   !worker.includes("noindex, nofollow, noarchive")
@@ -141,12 +141,25 @@ for (const snippet of willsBrandSnippets) {
   }
 
   if (!willsBrandPrivateHtml.includes(snippet)) {
-    errors.push(`_private/wills-brand-v6 is missing: ${snippet}`);
+    errors.push(`_private/wills-brand-v7 is missing: ${snippet}`);
+  }
+}
+
+const staleFunnelSnippets = [
+  "Make the first idea useful.",
+  "Start the relationship.",
+  "Teach the method.",
+  "Intelligence, then implementation.",
+];
+
+for (const snippet of staleFunnelSnippets) {
+  if (willsBrandHtml.includes(snippet) || willsBrandPrivateHtml.includes(snippet)) {
+    errors.push(`wills-brand funnel contains stale copy: ${snippet}`);
   }
 }
 
 if (willsBrandPrivateHtml !== willsBrandHtml) {
-  errors.push("_private/wills-brand-v6 must match wills-brand/index.html.");
+  errors.push("_private/wills-brand-v7 must match wills-brand/index.html.");
 }
 
 if (html.includes("/wills-brand")) {
