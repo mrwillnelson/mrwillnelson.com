@@ -34,7 +34,7 @@ const noindexAssetResponse = async (request, env, pathname) => {
   });
 };
 
-const privateNotFound = () =>
+const noindexNotFound = () =>
   new Response("Not found", {
     status: 404,
     headers: {
@@ -135,8 +135,11 @@ export default {
       return Response.json({ ok: true });
     }
 
-    if ((request.method === "GET" || request.method === "HEAD") && url.pathname === "/talkstories") {
-      return env.ASSETS.fetch(assetRequest(request, "/talkstories/index.html"));
+    if (
+      (request.method === "GET" || request.method === "HEAD") &&
+      (url.pathname === "/talkstories" || url.pathname === "/talkstories/")
+    ) {
+      return noindexNotFound();
     }
 
     if (
@@ -147,7 +150,7 @@ export default {
     }
 
     if ((request.method === "GET" || request.method === "HEAD") && url.pathname.startsWith("/_private/")) {
-      return privateNotFound();
+      return noindexNotFound();
     }
 
     if (url.pathname === "/api/subscribe" && request.method === "POST") {

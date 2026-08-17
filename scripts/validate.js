@@ -6,7 +6,6 @@ const requiredFiles = [
   "web/script.js",
   "web/favicon.png",
   "web/assets/profile.png",
-  "web/talkstories/index.html",
   "web/wills-brand/index.html",
   "web/_private/wills-brand-v3",
   "web/404.html",
@@ -15,6 +14,13 @@ const requiredFiles = [
 ];
 
 const errors = [];
+
+try {
+  await readFile(new URL("../web/talkstories/index.html", import.meta.url), "utf8");
+  errors.push("web/talkstories/index.html must remain removed.");
+} catch {
+  // Expected: the retired TalkStories page must not be included in static assets.
+}
 
 for (const file of requiredFiles) {
   try {
@@ -25,7 +31,6 @@ for (const file of requiredFiles) {
 }
 
 const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
-const talkstoriesHtml = await readFile(new URL("../web/talkstories/index.html", import.meta.url), "utf8");
 const willsBrandHtml = await readFile(new URL("../web/wills-brand/index.html", import.meta.url), "utf8");
 const willsBrandPrivateHtml = await readFile(new URL("../web/_private/wills-brand-v3", import.meta.url), "utf8");
 const style = await readFile(new URL("../web/style.css", import.meta.url), "utf8");
@@ -57,6 +62,8 @@ if (!wrangler.includes('"pattern": "mrwillnelson.com"') || !wrangler.includes('"
 
 if (
   !wrangler.includes('"run_worker_first"') ||
+  !wrangler.includes('"/talkstories"') ||
+  !wrangler.includes('"/talkstories/*"') ||
   !wrangler.includes('"/wills-brand"') ||
   !wrangler.includes('"/wills-brand/*"') ||
   !wrangler.includes('"/_private/*"')
@@ -68,8 +75,12 @@ if (!worker.includes("env.BEEHIIV_KEY") || !worker.includes("/api/subscribe")) {
   errors.push("worker/index.js must wire /api/subscribe to the Beehiiv API key secret.");
 }
 
-if (!worker.includes('url.pathname === "/talkstories"') || !worker.includes("/talkstories/index.html")) {
-  errors.push("worker/index.js must serve the TalkStories page at /talkstories.");
+if (
+  !worker.includes('url.pathname === "/talkstories"') ||
+  !worker.includes('url.pathname === "/talkstories/"') ||
+  worker.includes("/talkstories/index.html")
+) {
+  errors.push("worker/index.js must return 404 for the retired TalkStories routes.");
 }
 
 if (
@@ -95,29 +106,6 @@ for (const snippet of styleGuideSnippets) {
   if (!style.includes(snippet)) {
     errors.push(`style.css is missing editorial style guide snippet: ${snippet}`);
   }
-}
-
-const talkstoriesSnippets = [
-  "TalkStories",
-  "Find ideas your customers already care about.",
-  "TalkStories listens to meetings across your company, customer calls, and the wider market.",
-  "Book a demo",
-  "Messaging intelligence for go-to-market teams.",
-  "Fraunces",
-  "Newsreader",
-  "--bg:#0e0c0a",
-  "border-radius:16px",
-  'rel="canonical" href="https://mrwillnelson.com/talkstories"',
-];
-
-for (const snippet of talkstoriesSnippets) {
-  if (!talkstoriesHtml.includes(snippet)) {
-    errors.push(`talkstories/index.html is missing: ${snippet}`);
-  }
-}
-
-if (talkstoriesHtml.includes('class="brand">talkstories')) {
-  errors.push("talkstories/index.html must not render the TalkStories wordmark in the nav or footer.");
 }
 
 const willsBrandSnippets = [
@@ -152,8 +140,8 @@ if (willsBrandPrivateHtml !== willsBrandHtml) {
   errors.push("_private/wills-brand-v3 must match wills-brand/index.html.");
 }
 
-if (html.includes("/wills-brand") || talkstoriesHtml.includes("/wills-brand")) {
-  errors.push("wills-brand must not be linked from the homepage or TalkStories page.");
+if (html.includes("/wills-brand")) {
+  errors.push("wills-brand must not be linked from the homepage.");
 }
 
 if (errors.length) {

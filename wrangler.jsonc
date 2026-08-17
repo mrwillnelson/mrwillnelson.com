@@ -11,6 +11,8 @@
     "binding": "ASSETS",
     "not_found_handling": "404-page",
     "run_worker_first": [
+      "/talkstories",
+      "/talkstories/*",
       "/wills-brand",
       "/wills-brand/*",
       "/_private/*"
