@@ -1,6 +1,6 @@
 const BEEHIIV_API_BASE = "https://api.beehiiv.com/v2";
 const NOINDEX_HEADER = "noindex, nofollow, noarchive";
-const WILLS_BRAND_PRIVATE_ASSET = "/_private/wills-brand-v7";
+const WILLS_BRAND_PRIVATE_ASSET = "/_private/wills-brand-v8";
 
 const json = (body, init = {}) =>
   Response.json(body, {
