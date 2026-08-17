@@ -1,4 +1,6 @@
 const BEEHIIV_API_BASE = "https://api.beehiiv.com/v2";
+const NOINDEX_HEADER = "noindex, nofollow, noarchive";
+const WILLS_BRAND_PRIVATE_ASSET = "/_private/wills-brand";
 
 const json = (body, init = {}) =>
   Response.json(body, {
@@ -17,6 +19,29 @@ const assetRequest = (request, pathname) => {
   url.pathname = pathname;
   return new Request(url, request);
 };
+
+const noindexAssetResponse = async (request, env, pathname) => {
+  const response = await env.ASSETS.fetch(assetRequest(request, pathname));
+  const headers = new Headers(response.headers);
+  headers.set("X-Robots-Tag", NOINDEX_HEADER);
+  headers.set("Cache-Control", "no-store");
+  headers.set("Content-Type", "text/html; charset=utf-8");
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+};
+
+const privateNotFound = () =>
+  new Response("Not found", {
+    status: 404,
+    headers: {
+      "Cache-Control": "no-store",
+      "X-Robots-Tag": NOINDEX_HEADER,
+    },
+  });
 
 const beehiivFetch = (env, path, init = {}) =>
   fetch(`${BEEHIIV_API_BASE}${path}`, {
@@ -112,6 +137,17 @@ export default {
 
     if ((request.method === "GET" || request.method === "HEAD") && url.pathname === "/talkstories") {
       return env.ASSETS.fetch(assetRequest(request, "/talkstories/index.html"));
+    }
+
+    if (
+      (request.method === "GET" || request.method === "HEAD") &&
+      (url.pathname === "/wills-brand" || url.pathname === "/wills-brand/")
+    ) {
+      return noindexAssetResponse(request, env, WILLS_BRAND_PRIVATE_ASSET);
+    }
+
+    if ((request.method === "GET" || request.method === "HEAD") && url.pathname.startsWith("/_private/")) {
+      return privateNotFound();
     }
 
     if (url.pathname === "/api/subscribe" && request.method === "POST") {

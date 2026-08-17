@@ -7,6 +7,8 @@ const requiredFiles = [
   "web/favicon.png",
   "web/assets/profile.png",
   "web/talkstories/index.html",
+  "web/wills-brand/index.html",
+  "web/_private/wills-brand",
   "web/404.html",
   "worker/index.js",
   "wrangler.jsonc",
@@ -24,6 +26,8 @@ for (const file of requiredFiles) {
 
 const html = await readFile(new URL("../web/index.html", import.meta.url), "utf8");
 const talkstoriesHtml = await readFile(new URL("../web/talkstories/index.html", import.meta.url), "utf8");
+const willsBrandHtml = await readFile(new URL("../web/wills-brand/index.html", import.meta.url), "utf8");
+const willsBrandPrivateHtml = await readFile(new URL("../web/_private/wills-brand", import.meta.url), "utf8");
 const style = await readFile(new URL("../web/style.css", import.meta.url), "utf8");
 const worker = await readFile(new URL("../worker/index.js", import.meta.url), "utf8");
 const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
@@ -51,12 +55,32 @@ if (!wrangler.includes('"pattern": "mrwillnelson.com"') || !wrangler.includes('"
   errors.push("wrangler.jsonc must include the mrwillnelson.com custom domain route.");
 }
 
+if (
+  !wrangler.includes('"run_worker_first"') ||
+  !wrangler.includes('"/wills-brand"') ||
+  !wrangler.includes('"/wills-brand/*"') ||
+  !wrangler.includes('"/_private/*"')
+) {
+  errors.push("wrangler.jsonc must route /wills-brand through the Worker before static assets.");
+}
+
 if (!worker.includes("env.BEEHIIV_KEY") || !worker.includes("/api/subscribe")) {
   errors.push("worker/index.js must wire /api/subscribe to the Beehiiv API key secret.");
 }
 
 if (!worker.includes('url.pathname === "/talkstories"') || !worker.includes("/talkstories/index.html")) {
   errors.push("worker/index.js must serve the TalkStories page at /talkstories.");
+}
+
+if (
+  !worker.includes('url.pathname === "/wills-brand"') ||
+  !worker.includes('url.pathname === "/wills-brand/"') ||
+  !worker.includes("/_private/wills-brand") ||
+  !worker.includes('url.pathname.startsWith("/_private/")') ||
+  !worker.includes("X-Robots-Tag") ||
+  !worker.includes("noindex, nofollow, noarchive")
+) {
+  errors.push("worker/index.js must serve /wills-brand privately with an X-Robots-Tag noindex header.");
 }
 
 const styleGuideSnippets = [
@@ -94,6 +118,36 @@ for (const snippet of talkstoriesSnippets) {
 
 if (talkstoriesHtml.includes('class="brand">talkstories')) {
   errors.push("talkstories/index.html must not render the TalkStories wordmark in the nav or footer.");
+}
+
+const willsBrandSnippets = [
+  '<meta name="robots" content="noindex,nofollow,noarchive"',
+  "Will's Brand Ideas",
+  "Customer Listening And Better Ideas",
+  "Marketing Systems And Founder Leverage",
+  "Marketing Roles And Strategy",
+  "Demand And Proof",
+  "AI Writing System Lessons",
+  "Everything Fake Is Getting Cheaper",
+  "Your AI Writer Should Have to Compete for the Job",
+];
+
+for (const snippet of willsBrandSnippets) {
+  if (!willsBrandHtml.includes(snippet)) {
+    errors.push(`wills-brand/index.html is missing: ${snippet}`);
+  }
+
+  if (!willsBrandPrivateHtml.includes(snippet)) {
+    errors.push(`_private/wills-brand is missing: ${snippet}`);
+  }
+}
+
+if (willsBrandPrivateHtml !== willsBrandHtml) {
+  errors.push("_private/wills-brand must match wills-brand/index.html.");
+}
+
+if (html.includes("/wills-brand") || talkstoriesHtml.includes("/wills-brand")) {
+  errors.push("wills-brand must not be linked from the homepage or TalkStories page.");
 }
 
 if (errors.length) {
