@@ -39,7 +39,7 @@ const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "
 
 const requiredSnippets = [
   "Put AI to work.",
-  "I build ai marketing systems that get you attention.",
+  "I build AI marketing systems that get you attention.",
   "Join 3,400 founders and marketers.",
   "Get the workflows",
   "64stories",
